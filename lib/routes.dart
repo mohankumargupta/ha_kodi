@@ -6,13 +6,11 @@ import 'components/home.dart';
 final _router = GoRouter(routes: <GoRoute>[
   GoRoute(
     path: '/',
-    builder: (BuildContext context, GoRouterState state) =>
-        const MyHomePage(title: "boo"),
+    builder: (BuildContext context, GoRouterState state) => const MyHomePage(),
   ),
   GoRoute(
     path: '/b',
-    builder: (BuildContext context, GoRouterState state) =>
-        const MyHomePage(title: "boo"),
+    builder: (BuildContext context, GoRouterState state) => const MyHomePage(),
   ),
 ]);
 
