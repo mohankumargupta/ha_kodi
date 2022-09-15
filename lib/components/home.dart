@@ -30,8 +30,8 @@ class MyHomePage extends ConsumerWidget {
                             alignment: Alignment.topRight,
                             width: 65.0,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 10.0),
                             child: Text(
                               "Home Assistant KODI",
                               style: TextStyle(fontSize: 25.0),
@@ -53,8 +53,8 @@ class MyHomePage extends ConsumerWidget {
                   //  alignment: Alignment.centerLeft,
                   //)
                 ),
-                Flexible(
-                  child: const Padding(
+                const Flexible(
+                  child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                     child: Text(
