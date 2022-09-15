@@ -9,20 +9,25 @@ class MyHomePage extends ConsumerWidget {
     return Material(
         child: Column(
       children: [
-        SizedBox(
-          height: 50.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                child: Text("LHS"),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                child: Text("RHS"),
-              ),
-            ],
+        ColoredBox(
+          color: Colors.black.withOpacity(0.5),
+          child: SizedBox(
+            height: 65.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                  child: Text("LHS"),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                  child: Text("RHS"),
+                ),
+              ],
+            ),
           ),
         ),
         Expanded(
@@ -61,16 +66,20 @@ class MyHomePage extends ConsumerWidget {
             ],
           ),
         ),
-        SizedBox(
-          height: 40.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                child: Text("copyight 2022 Mohan Gupta"),
-              ),
-            ],
+        ColoredBox(
+          color: Colors.black.withOpacity(0.5),
+          child: SizedBox(
+            height: 65.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: const [
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                  child: Text("copyight 2022 Mohan Gupta"),
+                ),
+              ],
+            ),
           ),
         ),
       ],
