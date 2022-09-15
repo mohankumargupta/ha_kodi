@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});
@@ -15,17 +16,50 @@ class MyHomePage extends ConsumerWidget {
             height: 65.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                  child: Text("LHS"),
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Flexible(
+                  child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12.0, vertical: 5.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SvgPicture.asset(
+                            "assets/images/Home_Assistant_Logo.svg",
+                            alignment: Alignment.topRight,
+                            width: 65.0,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              "Home Assistant KODI",
+                              style: TextStyle(fontSize: 25.0),
+                            ),
+                          )
+                        ],
+                      )),
+                  //child: ListTile(
+                  //  contentPadding: EdgeInsets.all(20.0),
+                  //  leading: SvgPicture.asset(
+                  //    "assets/images/Home_Assistant_Logo.svg",
+                  //    alignment: Alignment.centerLeft,
+                  //  ),
+                  //  title: Text("boo"),
+                  //),
+
+                  //child: SvgPicture.asset(
+                  //  "assets/images/Home_Assistant_Logo.svg",
+                  //  alignment: Alignment.centerLeft,
+                  //)
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                  child: Text(
-                    "RHS",
+                Flexible(
+                  child: const Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                    child: Text(
+                      "RHS",
+                    ),
                   ),
                 ),
               ],
