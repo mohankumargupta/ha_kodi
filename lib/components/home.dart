@@ -9,18 +9,21 @@ class MyHomePage extends ConsumerWidget {
     return Material(
         child: Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-              child: Text("LHS"),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-              child: Text("RHS"),
-            ),
-          ],
+        SizedBox(
+          height: 50.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                child: Text("LHS"),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                child: Text("RHS"),
+              ),
+            ],
+          ),
         ),
         Expanded(
           child: Row(
@@ -58,14 +61,17 @@ class MyHomePage extends ConsumerWidget {
             ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: const [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-              child: Text("copyight 2022 Mohan Gupta"),
-            ),
-          ],
+        SizedBox(
+          height: 40.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: const [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                child: Text("copyight 2022 Mohan Gupta"),
+              ),
+            ],
+          ),
         ),
       ],
     ));
