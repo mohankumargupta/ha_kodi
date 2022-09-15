@@ -24,7 +24,9 @@ class MyHomePage extends ConsumerWidget {
                 Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                  child: Text("RHS"),
+                  child: Text(
+                    "RHS",
+                  ),
                 ),
               ],
             ),
@@ -62,7 +64,14 @@ class MyHomePage extends ConsumerWidget {
                       ),
                     ),
                   )),
-              const Expanded(flex: 4, child: Center(child: Text("maincontent")))
+              const Expanded(
+                  flex: 4,
+                  child: Center(
+                    child: Text(
+                      "maincontent",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ))
             ],
           ),
         ),
