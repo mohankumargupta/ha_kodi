@@ -29,35 +29,35 @@ class MyHomePage extends ConsumerWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NavigationRail(
-                  backgroundColor: Colors.pinkAccent,
-                  //labelType: NavigationRailLabelType.all,
-                  extended: true,
-                  //minExtendedWidth: 300.0,
-
-                  //minWidth: 300.0,
-                  selectedIconTheme: const IconThemeData(size: 80),
-                  unselectedIconTheme: const IconThemeData(size: 80),
-                  destinations: const [
-                    NavigationRailDestination(
-                        padding: EdgeInsets.only(
-                            left: 50.0, right: 50.0, bottom: 20.0, top: 100.0),
-                        icon: Icon(Icons.breakfast_dining),
-                        label: Padding(
-                          padding: EdgeInsets.only(left: 50.0, right: 50.0),
-                          child: Text("Area"),
-                        )),
-                    NavigationRailDestination(
-                        padding: EdgeInsets.only(
-                            left: 50.0, right: 50.0, bottom: 20.0, top: 20.0),
-                        icon: Icon(Icons.devices_other),
-                        label: Padding(
-                          padding: EdgeInsets.only(left: 50.0, right: 50.0),
-                          child: Text("Device"),
-                        )),
-                  ],
-                  selectedIndex: 0),
-              const Expanded(child: Text("RHSdasdadasdasdadda"))
+              Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ColoredBox(
+                      color: Colors.blueGrey.withOpacity(0.2),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: SingleChildScrollView(
+                          child: Column(children: const [
+                            ListTile(
+                                leading: Icon(Icons.home),
+                                title: Text(
+                                  "Areas",
+                                  style: TextStyle(fontSize: 30.0),
+                                ),
+                                tileColor: Colors.cyan,
+                                iconColor: Colors.white,
+                                textColor: Colors.white),
+                            ListTile(
+                              leading: Icon(Icons.home),
+                              title: Text("Devices"),
+                            ),
+                          ]),
+                        ),
+                      ),
+                    ),
+                  )),
+              const Expanded(flex: 4, child: Center(child: Text("maincontent")))
             ],
           ),
         ),
