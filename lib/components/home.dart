@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
+import 'package:timer_builder/timer_builder.dart';
 
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});
@@ -53,12 +55,23 @@ class MyHomePage extends ConsumerWidget {
                   //  alignment: Alignment.centerLeft,
                   //)
                 ),
-                const Flexible(
+                Flexible(
                   child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                    child: Text(
-                      "RHS",
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 0.0),
+                    child: TimerBuilder.periodic(
+                      const Duration(seconds: 1),
+                      builder: (BuildContext context) {
+                        final now = DateTime.now();
+                        final formattedNow = DateFormat.MMMEd()
+                            .add_jm()
+                            .format(now)
+                            .replaceAll(",", "");
+                        return Text(
+                          formattedNow,
+                          style: const TextStyle(fontSize: 18.0),
+                        );
+                      },
                     ),
                   ),
                 ),
