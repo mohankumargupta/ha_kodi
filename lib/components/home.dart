@@ -34,7 +34,52 @@ class MyHomePage extends ConsumerWidget {
                     image: DecorationImage(
                         image: AssetImage("assets/images/background.png"),
                         fit: BoxFit.cover)),
-                child: Column(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: ColoredBox(
+                          color: Colors.blueGrey.withOpacity(0.2),
+                          child: Padding(
+                            padding: const EdgeInsets.all(40.0),
+                            child: SingleChildScrollView(
+                              child: Column(children: const [
+                                ListTile(
+                                    leading: Icon(Icons.home),
+                                    title: Text(
+                                      "Areas",
+                                      style: TextStyle(fontSize: 30.0),
+                                    ),
+                                    tileColor: Colors.cyan,
+                                    iconColor: Colors.white,
+                                    textColor: Colors.white),
+                                ListTile(
+                                  leading: Icon(Icons.home),
+                                  title: Text("Devices"),
+                                ),
+                              ]),
+                            ),
+                          ),
+                        )),
+                    Expanded(
+                        flex: 4,
+                        child: Column(children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: const [
+                              SizedBox(
+                                height: 50.0,
+                                child: Text("RHS"),
+                              )
+                            ],
+                          )
+                        ])),
+                  ],
+                ),
+
+                /*
+                Column(
                   children: [
                     ColoredBox(
                       color: Colors.black.withOpacity(0.5),
@@ -167,6 +212,7 @@ class MyHomePage extends ConsumerWidget {
                     ),
                   ],
                 ),
+                */
               ),
             ),
           ),
