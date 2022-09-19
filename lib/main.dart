@@ -37,11 +37,6 @@ class MyApp extends StatelessWidget {
       routeInformationProvider: _router.routeInformationProvider,
       routeInformationParser: _router.routeInformationParser,
       routerDelegate: _router.routerDelegate,
-      theme: ThemeData(
-          textTheme: const TextTheme(
-              bodyLarge: TextStyle(color: Colors.yellow),
-              bodyMedium: TextStyle(color: Colors.white),
-              bodySmall: TextStyle(color: Colors.black))),
     );
     /*
     return MaterialApp(
