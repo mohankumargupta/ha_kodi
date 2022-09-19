@@ -47,42 +47,12 @@ class MyHomePage extends ConsumerWidget {
                                 left: 1.0, bottom: 10.0, top: 10.0),
                             child: SingleChildScrollView(
                               child: Column(children: [
-                                DecoratedBox(
+                                const DecoratedBox(
                                   position: DecorationPosition.background,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.lightBlueAccent,
                                   ),
-                                  child: ListTile(
-                                      //minVerticalPadding: 0,
-                                      contentPadding: const EdgeInsets.all(0),
-                                      horizontalTitleGap: 15.0,
-                                      dense: true,
-                                      visualDensity: const VisualDensity(
-                                          horizontal: 0, vertical: 4),
-                                      leading: const DecoratedBox(
-                                        position: DecorationPosition.background,
-                                        decoration:
-                                            BoxDecoration(color: Colors.teal),
-                                        child: IconButton(
-                                          color: Colors.white,
-                                          padding: EdgeInsets.all(12.0),
-                                          onPressed: null,
-                                          icon: Icon(
-                                            Icons.home,
-                                            color: Colors.white,
-                                          ),
-                                          iconSize: 40.0,
-                                        ),
-                                      ),
-                                      title: const Text(
-                                        "Devices",
-                                        style: TextStyle(
-                                          fontSize: 30.0,
-                                        ),
-                                      ),
-                                      tileColor: Colors.cyan,
-                                      iconColor: Colors.white,
-                                      textColor: Colors.white.withAlpha(200)),
+                                  child: SidebarMenuItem(),
                                 ),
                                 ListTile(
                                     horizontalTitleGap: 30.0,
@@ -253,5 +223,44 @@ class MyHomePage extends ConsumerWidget {
             ),
           ),
         ));
+  }
+}
+
+class SidebarMenuItem extends StatelessWidget {
+  const SidebarMenuItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+        //minVerticalPadding: 0,
+        contentPadding: const EdgeInsets.all(0),
+        horizontalTitleGap: 15.0,
+        dense: true,
+        visualDensity: const VisualDensity(horizontal: 0, vertical: 4),
+        leading: const DecoratedBox(
+          position: DecorationPosition.background,
+          decoration: BoxDecoration(color: Colors.teal),
+          child: IconButton(
+            color: Colors.white,
+            padding: EdgeInsets.all(12.0),
+            onPressed: null,
+            icon: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
+            iconSize: 40.0,
+          ),
+        ),
+        title: const Text(
+          "Devices",
+          style: TextStyle(
+            fontSize: 30.0,
+          ),
+        ),
+        tileColor: Colors.cyan,
+        iconColor: Colors.white,
+        textColor: Colors.white.withAlpha(200));
   }
 }
