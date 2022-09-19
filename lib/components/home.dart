@@ -15,6 +15,7 @@ class MyHomePage extends ConsumerWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+            //listTileTheme: const ListTileThemeData(dense: true),
             textTheme: const TextTheme(
                 bodyLarge: TextStyle(color: Colors.white),
                 bodyMedium: TextStyle(color: Colors.white),
@@ -40,24 +41,54 @@ class MyHomePage extends ConsumerWidget {
                     Expanded(
                         flex: 1,
                         child: ColoredBox(
-                          color: Colors.blueGrey.withOpacity(0.2),
+                          color: Colors.black.withOpacity(0.5),
                           child: Padding(
-                            padding: const EdgeInsets.all(40.0),
+                            padding: const EdgeInsets.only(
+                                left: 1.0, bottom: 10.0, top: 10.0),
                             child: SingleChildScrollView(
-                              child: Column(children: const [
+                              child: Column(children: [
+                                DecoratedBox(
+                                  decoration: const BoxDecoration(
+                                    color: Colors.lightBlueAccent,
+                                  ),
+                                  child: ListTile(
+                                      //minVerticalPadding: 0,
+                                      contentPadding: const EdgeInsets.all(0),
+                                      horizontalTitleGap: 15.0,
+                                      dense: true,
+                                      visualDensity: const VisualDensity(
+                                          horizontal: 0, vertical: 4),
+                                      leading: const DecoratedBox(
+                                        decoration:
+                                            BoxDecoration(color: Colors.teal),
+                                        child: IconButton(
+                                          color: Colors.white,
+                                          padding: EdgeInsets.all(12.0),
+                                          onPressed: null,
+                                          icon: Icon(Icons.home),
+                                          iconSize: 40.0,
+                                        ),
+                                      ),
+                                      title: const Text(
+                                        "Devices",
+                                        style: TextStyle(
+                                          fontSize: 30.0,
+                                        ),
+                                      ),
+                                      tileColor: Colors.cyan,
+                                      iconColor: Colors.white,
+                                      textColor: Colors.white.withAlpha(200)),
+                                ),
                                 ListTile(
-                                    leading: Icon(Icons.home),
-                                    title: Text(
-                                      "Areas",
+                                    horizontalTitleGap: 30.0,
+                                    leading: const Icon(Icons.home, size: 40.0),
+                                    title: const Text(
+                                      "Sensors",
                                       style: TextStyle(fontSize: 30.0),
                                     ),
                                     tileColor: Colors.cyan,
-                                    iconColor: Colors.white,
-                                    textColor: Colors.white),
-                                ListTile(
-                                  leading: Icon(Icons.home),
-                                  title: Text("Devices"),
-                                ),
+                                    iconColor: Colors.white.withAlpha(150),
+                                    textColor: Colors.white.withAlpha(200)),
                               ]),
                             ),
                           ),
