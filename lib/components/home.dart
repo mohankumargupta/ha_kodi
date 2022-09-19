@@ -264,3 +264,19 @@ class SidebarMenuItem extends StatelessWidget {
         textColor: Colors.white.withAlpha(200));
   }
 }
+
+class HighlightedSidebarMenuItem extends StatelessWidget {
+  const HighlightedSidebarMenuItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const DecoratedBox(
+        position: DecorationPosition.background,
+        decoration: BoxDecoration(
+          color: Colors.lightBlueAccent,
+        ),
+        child: ListTile());
+  }
+}
