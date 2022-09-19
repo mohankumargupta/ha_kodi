@@ -48,6 +48,7 @@ class MyHomePage extends ConsumerWidget {
                             child: SingleChildScrollView(
                               child: Column(children: [
                                 DecoratedBox(
+                                  position: DecorationPosition.background,
                                   decoration: const BoxDecoration(
                                     color: Colors.lightBlueAccent,
                                   ),
@@ -59,13 +60,17 @@ class MyHomePage extends ConsumerWidget {
                                       visualDensity: const VisualDensity(
                                           horizontal: 0, vertical: 4),
                                       leading: const DecoratedBox(
+                                        position: DecorationPosition.background,
                                         decoration:
                                             BoxDecoration(color: Colors.teal),
                                         child: IconButton(
                                           color: Colors.white,
                                           padding: EdgeInsets.all(12.0),
                                           onPressed: null,
-                                          icon: Icon(Icons.home),
+                                          icon: Icon(
+                                            Icons.home,
+                                            color: Colors.white,
+                                          ),
                                           iconSize: 40.0,
                                         ),
                                       ),
