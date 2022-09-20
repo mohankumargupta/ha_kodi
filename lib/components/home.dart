@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ha_kodi/models/home_sidebar.dart';
+import 'package:ha_kodi/providers/sidebar.dart';
 import 'package:intl/intl.dart';
 import 'package:timer_builder/timer_builder.dart';
 import 'package:collection/collection.dart';
@@ -14,6 +15,8 @@ class MyHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    int selectedMenu = ref.watch(sidebarSelectionProvider);
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -51,7 +54,7 @@ class MyHomePage extends ConsumerWidget {
                                 child: Column(
                                     children: homeSidebarMenuItems
                                         .mapIndexed((index, element) =>
-                                            index == 0
+                                            index == selectedMenu
                                                 ? HighlightedSidebarMenuItem(
                                                     icon: element.icon,
                                                     title: element.title)
