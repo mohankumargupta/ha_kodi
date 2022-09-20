@@ -18,4 +18,6 @@ final homeSidebarMenuItems = [
   HomeSidebarMenuItem(icon: Icons.home, title: "Energy"),
   HomeSidebarMenuItem(icon: Icons.flag, title: "Weather"),
   HomeSidebarMenuItem(icon: Icons.settings, title: "Settings"),
+  HomeSidebarMenuItem(icon: Icons.flag, title: "Developer Tools"),
+  HomeSidebarMenuItem(icon: Icons.settings, title: "Automations"),
 ];

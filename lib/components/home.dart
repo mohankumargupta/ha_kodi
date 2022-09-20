@@ -7,14 +7,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ha_kodi/models/home_sidebar.dart';
 import 'package:intl/intl.dart';
 import 'package:timer_builder/timer_builder.dart';
+import 'package:collection/collection.dart';
 
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sidebarmenuitems = homeSidebarMenuItems;
-
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -49,13 +48,23 @@ class MyHomePage extends ConsumerWidget {
                             padding: const EdgeInsets.only(
                                 left: 1.0, bottom: 10.0, top: 10.0),
                             child: SingleChildScrollView(
+                                child: Column(
+                                    children: homeSidebarMenuItems
+                                        .mapIndexed((index, element) =>
+                                            SidebarMenuItem(
+                                                icon: element.icon,
+                                                title: element.title))
+                                        .toList())
+                                /*
                               child: Column(children: const [
                                 HighlightedSidebarMenuItem(
                                     icon: Icons.home, title: "Devices"),
                                 SidebarMenuItem(
                                     icon: Icons.home, title: "Sensors"),
-                              ]),
-                            ),
+                              ])
+                              */
+
+                                ),
                           ),
                         )),
                     Expanded(
@@ -240,35 +249,34 @@ class _SidebarMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-        //minVerticalPadding: 0,
-        contentPadding: const EdgeInsets.all(0),
-        horizontalTitleGap: 15.0,
-        dense: true,
-        visualDensity: const VisualDensity(horizontal: 0, vertical: 4),
-        leading: const DecoratedBox(
-          position: DecorationPosition.background,
-          decoration: BoxDecoration(color: Colors.teal),
-          child: IconButton(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: ListTile(
+          //minVerticalPadding: 0,
+          contentPadding: const EdgeInsets.all(0),
+          horizontalTitleGap: 15.0,
+          dense: true,
+          visualDensity: const VisualDensity(horizontal: 0, vertical: 4),
+          leading: IconButton(
             color: Colors.white,
-            padding: EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(12.0),
             onPressed: null,
             icon: Icon(
-              Icons.home,
+              icon,
               color: Colors.white,
             ),
             iconSize: 40.0,
           ),
-        ),
-        title: const Text(
-          "Devices",
-          style: TextStyle(
-            fontSize: 30.0,
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 30.0,
+            ),
           ),
-        ),
-        tileColor: Colors.cyan,
-        iconColor: Colors.white,
-        textColor: Colors.white.withAlpha(200));
+          tileColor: Colors.cyan,
+          iconColor: Colors.white,
+          textColor: Colors.white.withAlpha(200)),
+    );
   }
 }
 
@@ -298,11 +306,6 @@ class SidebarMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-        position: DecorationPosition.background,
-        decoration: const BoxDecoration(
-          color: Colors.lightBlueAccent,
-        ),
-        child: _SidebarMenuItem(icon: icon, title: title));
+    return _SidebarMenuItem(icon: icon, title: title);
   }
 }
