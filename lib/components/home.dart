@@ -13,7 +13,7 @@ class MyHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sidebarmenuitems = home_sidebar_menu_items;
+    final sidebarmenuitems = homeSidebarMenuItems;
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -76,10 +76,26 @@ class MyHomePage extends ConsumerWidget {
                         child: Column(children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: const [
-                              SizedBox(
-                                height: 50.0,
-                                child: Text("RHS"),
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(right: 8.0),
+                                child: SizedBox(
+                                  height: 50.0,
+                                  child: TimerBuilder.periodic(
+                                    const Duration(seconds: 1),
+                                    builder: (BuildContext context) {
+                                      final now = DateTime.now();
+                                      final formattedNow = DateFormat()
+                                          .add_jm()
+                                          .format(now)
+                                          .replaceAll(",", "");
+                                      return Text(
+                                        formattedNow,
+                                        style: const TextStyle(fontSize: 38.0),
+                                      );
+                                    },
+                                  ),
+                                ),
                               )
                             ],
                           )

@@ -10,7 +10,7 @@ class HomeSidebarMenuItem {
       {required this.icon, required this.title, this.selected = false});
 }
 
-final home_sidebar_menu_items = [
+final homeSidebarMenuItems = [
   HomeSidebarMenuItem(icon: Icons.home, title: "Dashboard"),
   HomeSidebarMenuItem(icon: Icons.flag, title: "Devices"),
   HomeSidebarMenuItem(icon: Icons.ac_unit, title: "Sensors"),
