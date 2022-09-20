@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ha_kodi/models/home_sidebar.dart';
+import 'package:ha_kodi/providers/date.dart';
 import 'package:ha_kodi/providers/sidebar.dart';
 import 'package:intl/intl.dart';
 import 'package:timer_builder/timer_builder.dart';
@@ -16,6 +17,7 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int selectedMenu = ref.watch(sidebarSelectionProvider);
+    String date = ref.watch(dateSelectionProvider);
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -109,7 +111,21 @@ class MyHomePage extends ConsumerWidget {
                                 ),
                               )
                             ],
-                          )
+                          ),
+                          //TODO: This should be in a column with the above time
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 8.0, right: 8.0),
+                                  child: SizedBox(
+                                    height: 40,
+                                    child: Text(date,
+                                        style: const TextStyle(fontSize: 20.0)),
+                                  ),
+                                )
+                              ])
                         ])),
                   ],
                 ),
