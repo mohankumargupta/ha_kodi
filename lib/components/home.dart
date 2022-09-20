@@ -99,7 +99,7 @@ class MyHomePage extends ConsumerWidget {
                                     child: SizedBox(
                                       height: 50.0,
                                       child: TimerBuilder.periodic(
-                                        const Duration(seconds: 1),
+                                        const Duration(seconds: 5),
                                         builder: (BuildContext context) {
                                           final now = DateTime.now();
                                           final formattedNow = DateFormat()
