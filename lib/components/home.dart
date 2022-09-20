@@ -49,24 +49,11 @@ class MyHomePage extends ConsumerWidget {
                             padding: const EdgeInsets.only(
                                 left: 1.0, bottom: 10.0, top: 10.0),
                             child: SingleChildScrollView(
-                              child: Column(children: [
-                                const DecoratedBox(
-                                  position: DecorationPosition.background,
-                                  decoration: BoxDecoration(
-                                    color: Colors.lightBlueAccent,
-                                  ),
-                                  child: SidebarMenuItem(),
-                                ),
-                                ListTile(
-                                    horizontalTitleGap: 30.0,
-                                    leading: const Icon(Icons.home, size: 40.0),
-                                    title: const Text(
-                                      "Sensors",
-                                      style: TextStyle(fontSize: 30.0),
-                                    ),
-                                    tileColor: Colors.cyan,
-                                    iconColor: Colors.white.withAlpha(150),
-                                    textColor: Colors.white.withAlpha(200)),
+                              child: Column(children: const [
+                                HighlightedSidebarMenuItem(
+                                    icon: Icons.home, title: "Devices"),
+                                SidebarMenuItem(
+                                    icon: Icons.home, title: "Sensors"),
                               ]),
                             ),
                           ),
@@ -245,10 +232,11 @@ class MyHomePage extends ConsumerWidget {
   }
 }
 
-class SidebarMenuItem extends StatelessWidget {
-  const SidebarMenuItem({
-    super.key,
-  });
+class _SidebarMenuItem extends StatelessWidget {
+  final IconData icon;
+  final String title;
+
+  const _SidebarMenuItem({super.key, required this.icon, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -285,17 +273,36 @@ class SidebarMenuItem extends StatelessWidget {
 }
 
 class HighlightedSidebarMenuItem extends StatelessWidget {
-  const HighlightedSidebarMenuItem({
-    super.key,
-  });
+  final IconData icon;
+  final String title;
+
+  const HighlightedSidebarMenuItem(
+      {super.key, required this.icon, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return const DecoratedBox(
+    return DecoratedBox(
         position: DecorationPosition.background,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.lightBlueAccent,
         ),
-        child: ListTile());
+        child: _SidebarMenuItem(icon: icon, title: title));
+  }
+}
+
+class SidebarMenuItem extends StatelessWidget {
+  final IconData icon;
+  final String title;
+
+  const SidebarMenuItem({super.key, required this.icon, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+        position: DecorationPosition.background,
+        decoration: const BoxDecoration(
+          color: Colors.lightBlueAccent,
+        ),
+        child: _SidebarMenuItem(icon: icon, title: title));
   }
 }
