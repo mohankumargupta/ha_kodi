@@ -31,7 +31,15 @@ class MyHomePage extends ConsumerWidget {
               const SingleActivator(LogicalKeyboardKey.keyC, control: true):
                   () {
                 exit(0);
-              }
+              },
+              const SingleActivator(LogicalKeyboardKey.arrowUp): () {
+                ref.read(sidebarSelectionProvider.notifier).moveUp();
+              },
+              const SingleActivator(LogicalKeyboardKey.arrowDown): () {
+                ref.read(sidebarSelectionProvider.notifier).moveDown();
+              },
+              const SingleActivator(LogicalKeyboardKey.arrowLeft): () {},
+              const SingleActivator(LogicalKeyboardKey.arrowRight): () {},
             },
             child: Focus(
               autofocus: true,
@@ -302,8 +310,8 @@ class HighlightedSidebarMenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
         position: DecorationPosition.background,
-        decoration: const BoxDecoration(
-          color: Colors.lightBlueAccent,
+        decoration: BoxDecoration(
+          color: Colors.lightBlueAccent.withAlpha(160),
         ),
         child: _SidebarMenuItem(icon: icon, title: title, selected: true));
   }
