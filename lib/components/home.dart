@@ -90,42 +90,44 @@ class MyHomePage extends ConsumerWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
-                                child: SizedBox(
-                                  height: 50.0,
-                                  child: TimerBuilder.periodic(
-                                    const Duration(seconds: 1),
-                                    builder: (BuildContext context) {
-                                      final now = DateTime.now();
-                                      final formattedNow = DateFormat()
-                                          .add_jm()
-                                          .format(now)
-                                          .replaceAll(",", "");
-                                      return Text(
-                                        formattedNow,
-                                        style: const TextStyle(fontSize: 38.0),
-                                      );
-                                    },
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 8.0),
+                                    child: SizedBox(
+                                      height: 50.0,
+                                      child: TimerBuilder.periodic(
+                                        const Duration(seconds: 1),
+                                        builder: (BuildContext context) {
+                                          final now = DateTime.now();
+                                          final formattedNow = DateFormat()
+                                              .add_jm()
+                                              .format(now)
+                                              .replaceAll(",", "");
+                                          return Text(
+                                            formattedNow,
+                                            style:
+                                                const TextStyle(fontSize: 38.0),
+                                          );
+                                        },
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 8.0, right: 8.0),
+                                    child: SizedBox(
+                                      height: 40,
+                                      child: Text(date,
+                                          style:
+                                              const TextStyle(fontSize: 20.0)),
+                                    ),
+                                  )
+                                ],
                               )
                             ],
                           ),
-                          //TODO: This should be in a column with the above time
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 8.0, right: 8.0),
-                                  child: SizedBox(
-                                    height: 40,
-                                    child: Text(date,
-                                        style: const TextStyle(fontSize: 20.0)),
-                                  ),
-                                )
-                              ])
                         ])),
                   ],
                 ),
