@@ -56,7 +56,8 @@ class MyHomePage extends ConsumerWidget {
                     Expanded(
                         flex: 1,
                         child: ColoredBox(
-                          color: Colors.black.withOpacity(0.5),
+                          //color: Colors.black.withOpacity(0.5),
+                          color: const Color.fromARGB(255, 14, 20, 22),
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 left: 1.0, bottom: 10.0, top: 10.0),
