@@ -51,9 +51,13 @@ class MyHomePage extends ConsumerWidget {
                                 child: Column(
                                     children: homeSidebarMenuItems
                                         .mapIndexed((index, element) =>
-                                            SidebarMenuItem(
-                                                icon: element.icon,
-                                                title: element.title))
+                                            index == 0
+                                                ? HighlightedSidebarMenuItem(
+                                                    icon: element.icon,
+                                                    title: element.title)
+                                                : SidebarMenuItem(
+                                                    icon: element.icon,
+                                                    title: element.title))
                                         .toList())
                                 /*
                               child: Column(children: const [
@@ -244,8 +248,13 @@ class MyHomePage extends ConsumerWidget {
 class _SidebarMenuItem extends StatelessWidget {
   final IconData icon;
   final String title;
+  final bool selected;
 
-  const _SidebarMenuItem({super.key, required this.icon, required this.title});
+  const _SidebarMenuItem(
+      {super.key,
+      required this.icon,
+      required this.title,
+      required this.selected});
 
   @override
   Widget build(BuildContext context) {
@@ -263,7 +272,7 @@ class _SidebarMenuItem extends StatelessWidget {
             onPressed: null,
             icon: Icon(
               icon,
-              color: Colors.white,
+              color: Colors.white.withAlpha(selected ? 240 : 150),
             ),
             iconSize: 40.0,
           ),
@@ -274,8 +283,7 @@ class _SidebarMenuItem extends StatelessWidget {
             ),
           ),
           tileColor: Colors.cyan,
-          iconColor: Colors.white,
-          textColor: Colors.white.withAlpha(200)),
+          textColor: Colors.white.withAlpha(selected ? 220 : 190)),
     );
   }
 }
@@ -294,7 +302,7 @@ class HighlightedSidebarMenuItem extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.lightBlueAccent,
         ),
-        child: _SidebarMenuItem(icon: icon, title: title));
+        child: _SidebarMenuItem(icon: icon, title: title, selected: true));
   }
 }
 
@@ -306,6 +314,6 @@ class SidebarMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _SidebarMenuItem(icon: icon, title: title);
+    return _SidebarMenuItem(icon: icon, title: title, selected: false);
   }
 }

@@ -4,10 +4,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class HomeSidebarMenuItem {
   IconData icon;
   String title;
-  bool selected;
 
-  HomeSidebarMenuItem(
-      {required this.icon, required this.title, this.selected = false});
+  HomeSidebarMenuItem({required this.icon, required this.title});
 }
 
 final homeSidebarMenuItems = [
