@@ -62,17 +62,62 @@ class MyHomePage extends ConsumerWidget {
                             padding: const EdgeInsets.only(
                                 left: 1.0, bottom: 10.0, top: 10.0),
                             child: SingleChildScrollView(
-                                child: Column(
-                                    children: homeSidebarMenuItems
-                                        .mapIndexed((index, element) =>
-                                            index == selectedMenu
-                                                ? HighlightedSidebarMenuItem(
-                                                    icon: element.icon,
-                                                    title: element.title)
-                                                : SidebarMenuItem(
-                                                    icon: element.icon,
-                                                    title: element.title))
-                                        .toList())
+                                child: Column(children: [
+                              SizedBox(
+                                  height: 56.0,
+                                  child: Row(children: const [Text("LOGO")])),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 36.0),
+                                child: SizedBox(
+                                    height: 56.0,
+                                    child: Center(
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Expanded(
+                                              flex: 1,
+                                              child: CircleAvatar(
+                                                radius: 30,
+                                                backgroundColor:
+                                                    Color(0xff94d500),
+                                                child: IconButton(
+                                                  enableFeedback: false,
+                                                  icon: Icon(
+                                                    Icons.settings,
+                                                    color: Colors.white
+                                                        .withAlpha(160),
+                                                  ),
+                                                  onPressed: () {},
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                                flex: 1,
+                                                child: Icon(Icons.settings,
+                                                    size: 60.0,
+                                                    color: Colors.white
+                                                        .withAlpha(160))),
+                                            Expanded(
+                                                flex: 1,
+                                                child: Icon(Icons.search,
+                                                    size: 60.0,
+                                                    color: Colors.white
+                                                        .withAlpha(160))),
+                                          ]),
+                                    )),
+                              ),
+                              ...homeSidebarMenuItems
+                                  .mapIndexed((index, element) =>
+                                      index == selectedMenu
+                                          ? HighlightedSidebarMenuItem(
+                                              icon: element.icon,
+                                              title: element.title)
+                                          : SidebarMenuItem(
+                                              icon: element.icon,
+                                              title: element.title))
+                                  .toList()
+                            ])
                                 /*
                               child: Column(children: const [
                                 HighlightedSidebarMenuItem(
