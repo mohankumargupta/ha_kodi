@@ -8,6 +8,7 @@ import 'package:ha_kodi/models/home_sidebar.dart';
 import 'package:ha_kodi/providers/date.dart';
 import 'package:ha_kodi/providers/sidebar.dart';
 import 'package:intl/intl.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:timer_builder/timer_builder.dart';
 import 'package:collection/collection.dart';
 
@@ -69,7 +70,7 @@ class MyHomePage extends ConsumerWidget {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 36.0),
                                 child: SizedBox(
-                                    height: 56.0,
+                                    height: 90.0,
                                     child: Center(
                                       child: Row(
                                           mainAxisAlignment:
@@ -78,17 +79,24 @@ class MyHomePage extends ConsumerWidget {
                                             Expanded(
                                               flex: 1,
                                               child: CircleAvatar(
-                                                radius: 30,
-                                                backgroundColor:
-                                                    Color(0xff94d500),
-                                                child: IconButton(
-                                                  enableFeedback: false,
-                                                  icon: Icon(
-                                                    Icons.settings,
-                                                    color: Colors.white
-                                                        .withAlpha(160),
+                                                radius: 50.0,
+                                                backgroundColor: Colors
+                                                    .lightBlueAccent
+                                                    .withAlpha(160),
+                                                child: Align(
+                                                  alignment: const Alignment(
+                                                      -0.4, -0.75),
+                                                  //Alignment.center,
+                                                  child: IconButton(
+                                                    enableFeedback: false,
+                                                    icon: Icon(
+                                                      size: 60.0,
+                                                      MdiIcons.help,
+                                                      color: Colors.white
+                                                          .withAlpha(160),
+                                                    ),
+                                                    onPressed: () {},
                                                   ),
-                                                  onPressed: () {},
                                                 ),
                                               ),
                                             ),
