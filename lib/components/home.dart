@@ -77,41 +77,51 @@ class MyHomePage extends ConsumerWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Expanded(
-                                              flex: 1,
-                                              child: CircleAvatar(
-                                                radius: 50.0,
-                                                backgroundColor: Colors
-                                                    .lightBlueAccent
-                                                    .withAlpha(160),
-                                                child: Align(
-                                                  alignment: const Alignment(
-                                                      -0.4, -0.75),
-                                                  //Alignment.center,
-                                                  child: IconButton(
-                                                    enableFeedback: false,
-                                                    icon: Icon(
-                                                      size: 60.0,
-                                                      MdiIcons.help,
+                                                flex: 1,
+                                                child: TextButton(
+                                                  onPressed: () {},
+                                                  child: Icon(MdiIcons.help,
+                                                      color: Colors.white
+                                                          .withAlpha(180),
+                                                      size: 40.0),
+                                                  style: TextButton.styleFrom(
+                                                      shape: CircleBorder(),
+                                                      padding:
+                                                          EdgeInsets.all(15.0),
+                                                      backgroundColor: Colors
+                                                          .lightBlueAccent
+                                                          .withAlpha(160)),
+                                                )),
+                                            Expanded(
+                                                flex: 1,
+                                                child: TextButton(
+                                                  onPressed: () {},
+                                                  child: Icon(Icons.settings,
                                                       color: Colors.white
                                                           .withAlpha(160),
-                                                    ),
-                                                    onPressed: () {},
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                                                      size: 40.0),
+                                                  style: TextButton.styleFrom(
+                                                      shape: CircleBorder(),
+                                                      padding:
+                                                          EdgeInsets.all(15.0),
+                                                      backgroundColor:
+                                                          Colors.transparent),
+                                                )),
                                             Expanded(
                                                 flex: 1,
-                                                child: Icon(Icons.settings,
-                                                    size: 60.0,
-                                                    color: Colors.white
-                                                        .withAlpha(160))),
-                                            Expanded(
-                                                flex: 1,
-                                                child: Icon(Icons.search,
-                                                    size: 60.0,
-                                                    color: Colors.white
-                                                        .withAlpha(160))),
+                                                child: TextButton(
+                                                  onPressed: () {},
+                                                  child: Icon(Icons.search,
+                                                      color: Colors.white
+                                                          .withAlpha(160),
+                                                      size: 40.0),
+                                                  style: TextButton.styleFrom(
+                                                      shape: CircleBorder(),
+                                                      padding:
+                                                          EdgeInsets.all(15.0),
+                                                      backgroundColor:
+                                                          Colors.transparent),
+                                                )),
                                           ]),
                                     )),
                               ),
