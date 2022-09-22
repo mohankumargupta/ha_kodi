@@ -66,9 +66,24 @@ class MyHomePage extends ConsumerWidget {
                                 child: Column(children: [
                               SizedBox(
                                   height: 56.0,
-                                  child: Row(children: const [Text("LOGO")])),
+                                  child: Row(children: [
+                                    Opacity(
+                                      opacity: 0.5,
+                                      child: SvgPicture.asset(
+                                        "assets/images/Home_Assistant_Logo.svg",
+                                        alignment: Alignment.topRight,
+                                        width: 65.0,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(left: 28.0),
+                                      child: const Text("HA Kodi"),
+                                    )
+                                  ])),
                               Padding(
-                                padding: const EdgeInsets.only(bottom: 36.0),
+                                padding: const EdgeInsets.only(
+                                    bottom: 36.0, top: 36.0),
                                 child: SizedBox(
                                     height: 90.0,
                                     child: Center(
