@@ -212,12 +212,13 @@ class MyHomePage extends ConsumerWidget {
                                 top: 30.0,
                                 bottom: 200.0),
                             child: DecoratedBox(
-                              decoration: BoxDecoration(color: Colors.black),
+                              decoration:
+                                  const BoxDecoration(color: Colors.black),
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment:
                                       CrossAxisAlignment.stretch,
-                                  children: [
+                                  children: const [
                                     Center(
                                       child: Text("Devices",
                                           style: TextStyle(fontSize: 38.0)),
