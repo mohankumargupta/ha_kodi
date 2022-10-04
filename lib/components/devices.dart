@@ -11,7 +11,7 @@ class Devices extends ConsumerWidget {
     final devices = ["Device #1", "Device #2", "Device #3"];
 
     return Column(
-      children: [Center(child: Text(deviceMessage))],
+      children: deviceMessage.map((e) => Text(e)).toList(),
 
       /*devices
             .map((e) => Text(

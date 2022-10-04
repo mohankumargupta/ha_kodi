@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:web_socket_channel/io.dart';
 
-final DEVICE_MESSAGE_ID = 1;
+const DEVICE_MESSAGE_ID = 1;
 
 final haWebsocketProvider = Provider((ref) {
   final channel =
@@ -24,21 +26,52 @@ final haDeviceStreamProvider = StreamProvider((ref) async* {
   }
 });
 
-class DeviceListNotifier extends StateNotifier<String> {
+class DeviceListNotifier extends StateNotifier<List<String>> {
   DeviceListNotifier(super.state);
 }
 
 final deviceListProvider =
-    StateNotifierProvider<DeviceListNotifier, String>((ref) {
+    StateNotifierProvider<DeviceListNotifier, List<String>>((ref) {
   final notifier = ref.watch(haDeviceStreamProvider);
 
   late final DeviceListNotifier returnValue;
   notifier.when(data: (data) {
-    returnValue = DeviceListNotifier(data);
+    final Map<String, dynamic> message = jsonDecode(data);
+    final messageType = message["type"];
+
+    if (messageType == "result") {
+      final int messageID = message["id"];
+      final List<dynamic> result = message["result"];
+      final devices = result
+          .where((element) =>
+              element["model"] != "Home Assistant Add-on" &&
+              element["model"] != null &&
+              element["manufacturer"] != "hacs.xyz" &&
+              element["manufacturer"] != "Home Assistant")
+          .toList();
+
+      var actualData = <String>[];
+      for (final device in devices) {
+        final name = device["name"];
+        final model = device["model"];
+        final manufacturer = device["manufacturer"];
+        actualData.add('$name $model $manufacturer');
+      }
+
+      switch (messageID) {
+        case DEVICE_MESSAGE_ID:
+          returnValue = DeviceListNotifier(actualData);
+          break;
+        default:
+          returnValue = DeviceListNotifier([]);
+      }
+    } else {
+      returnValue = DeviceListNotifier([]);
+    }
   }, error: (e, st) {
-    returnValue = DeviceListNotifier("error");
+    returnValue = DeviceListNotifier([]);
   }, loading: () {
-    returnValue = DeviceListNotifier("loading");
+    returnValue = DeviceListNotifier([]);
   });
 
   return returnValue;
