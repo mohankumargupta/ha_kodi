@@ -12,6 +12,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:timer_builder/timer_builder.dart';
 import 'package:collection/collection.dart';
 
+import 'devices.dart';
+
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});
 
@@ -155,17 +157,7 @@ class MyHomePage extends ConsumerWidget {
                                               icon: element.icon,
                                               title: element.title))
                                   .toList()
-                            ])
-                                /*
-                              child: Column(children: const [
-                                HighlightedSidebarMenuItem(
-                                    icon: Icons.home, title: "Devices"),
-                                SidebarMenuItem(
-                                    icon: Icons.home, title: "Sensors"),
-                              ])
-                              */
-
-                                ),
+                            ])),
                           ),
                         )),
                     Expanded(
@@ -212,145 +204,34 @@ class MyHomePage extends ConsumerWidget {
                               )
                             ],
                           ),
+                          Expanded(
+                              child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 100.0,
+                                right: 200.0,
+                                top: 30.0,
+                                bottom: 200.0),
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(color: Colors.black),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Center(
+                                      child: Text("Devices",
+                                          style: TextStyle(fontSize: 38.0)),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Devices(),
+                                    )
+                                  ]),
+                            ),
+                          ))
                         ])),
                   ],
                 ),
-
-                /*
-                Column(
-                  children: [
-                    ColoredBox(
-                      color: Colors.black.withOpacity(0.5),
-                      child: SizedBox(
-                        height: 65.0,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 12.0, vertical: 5.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Opacity(
-                                        opacity: 0.5,
-                                        child: SvgPicture.asset(
-                                          "assets/images/Home_Assistant_Logo.svg",
-                                          alignment: Alignment.topRight,
-                                          width: 65.0,
-                                        ),
-                                      ),
-                                      const Padding(
-                                        padding: EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "Home Assistant KODI",
-                                          style: TextStyle(fontSize: 25.0),
-                                        ),
-                                      )
-                                    ],
-                                  )),
-                              //child: ListTile(
-                              //  contentPadding: EdgeInsets.all(20.0),
-                              //  leading: SvgPicture.asset(
-                              //    "assets/images/Home_Assistant_Logo.svg",
-                              //    alignment: Alignment.centerLeft,
-                              //  ),
-                              //  title: Text("boo"),
-                              //),
-
-                              //child: SvgPicture.asset(
-                              //  "assets/images/Home_Assistant_Logo.svg",
-                              //  alignment: Alignment.centerLeft,
-                              //)
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0, vertical: 0.0),
-                                child: TimerBuilder.periodic(
-                                  const Duration(seconds: 1),
-                                  builder: (BuildContext context) {
-                                    final now = DateTime.now();
-                                    final formattedNow = DateFormat.MMMEd()
-                                        .add_jm()
-                                        .format(now)
-                                        .replaceAll(",", "");
-                                    return Text(
-                                      formattedNow,
-                                      style: const TextStyle(fontSize: 18.0),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: ColoredBox(
-                                  color: Colors.blueGrey.withOpacity(0.2),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: SingleChildScrollView(
-                                      child: Column(children: const [
-                                        ListTile(
-                                            leading: Icon(Icons.home),
-                                            title: Text(
-                                              "Areas",
-                                              style: TextStyle(fontSize: 30.0),
-                                            ),
-                                            tileColor: Colors.cyan,
-                                            iconColor: Colors.white,
-                                            textColor: Colors.white),
-                                        ListTile(
-                                          leading: Icon(Icons.home),
-                                          title: Text("Devices"),
-                                        ),
-                                      ]),
-                                    ),
-                                  ),
-                                ),
-                              )),
-                          const Expanded(
-                              flex: 4,
-                              child: Center(
-                                child: Text(
-                                  "maincontent",
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                              ))
-                        ],
-                      ),
-                    ),
-                    ColoredBox(
-                      color: Colors.black.withOpacity(0.5),
-                      child: SizedBox(
-                        height: 65.0,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20.0, vertical: 0.0),
-                              child: Text("copyight 2022 Mohan Gupta"),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                */
               ),
             ),
           ),
