@@ -75,10 +75,9 @@ class MyHomePage extends ConsumerWidget {
                                         width: 65.0,
                                       ),
                                     ),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 28.0),
-                                      child: const Text("HA Kodi"),
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 28.0),
+                                      child: Text("HA Kodi"),
                                     )
                                   ])),
                               Padding(
@@ -95,47 +94,53 @@ class MyHomePage extends ConsumerWidget {
                                                 flex: 1,
                                                 child: TextButton(
                                                   onPressed: () {},
+                                                  style: TextButton.styleFrom(
+                                                      shape:
+                                                          const CircleBorder(),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              15.0),
+                                                      backgroundColor: Colors
+                                                          .lightBlueAccent
+                                                          .withAlpha(160)),
                                                   child: Icon(MdiIcons.help,
                                                       color: Colors.white
                                                           .withAlpha(180),
                                                       size: 40.0),
-                                                  style: TextButton.styleFrom(
-                                                      shape: CircleBorder(),
-                                                      padding:
-                                                          EdgeInsets.all(15.0),
-                                                      backgroundColor: Colors
-                                                          .lightBlueAccent
-                                                          .withAlpha(160)),
                                                 )),
                                             Expanded(
                                                 flex: 1,
                                                 child: TextButton(
                                                   onPressed: () {},
+                                                  style: TextButton.styleFrom(
+                                                      shape:
+                                                          const CircleBorder(),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              15.0),
+                                                      backgroundColor:
+                                                          Colors.transparent),
                                                   child: Icon(Icons.settings,
                                                       color: Colors.white
                                                           .withAlpha(160),
                                                       size: 40.0),
-                                                  style: TextButton.styleFrom(
-                                                      shape: CircleBorder(),
-                                                      padding:
-                                                          EdgeInsets.all(15.0),
-                                                      backgroundColor:
-                                                          Colors.transparent),
                                                 )),
                                             Expanded(
                                                 flex: 1,
                                                 child: TextButton(
                                                   onPressed: () {},
+                                                  style: TextButton.styleFrom(
+                                                      shape:
+                                                          const CircleBorder(),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              15.0),
+                                                      backgroundColor:
+                                                          Colors.transparent),
                                                   child: Icon(Icons.search,
                                                       color: Colors.white
                                                           .withAlpha(160),
                                                       size: 40.0),
-                                                  style: TextButton.styleFrom(
-                                                      shape: CircleBorder(),
-                                                      padding:
-                                                          EdgeInsets.all(15.0),
-                                                      backgroundColor:
-                                                          Colors.transparent),
                                                 )),
                                           ]),
                                     )),
@@ -359,10 +364,7 @@ class _SidebarMenuItem extends StatelessWidget {
   final bool selected;
 
   const _SidebarMenuItem(
-      {super.key,
-      required this.icon,
-      required this.title,
-      required this.selected});
+      {required this.icon, required this.title, required this.selected});
 
   @override
   Widget build(BuildContext context) {
