@@ -1,10 +1,9 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:web_socket_channel/io.dart';
 
-const DEVICE_MESSAGE_ID = 1;
+const deviceMessageID = 1;
 
 final haWebsocketProvider = Provider((ref) {
   final channel =
@@ -12,7 +11,7 @@ final haWebsocketProvider = Provider((ref) {
   channel.sink.add(
       '{"type":"auth", "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIzZWM3ZDQ5OWRjNDg0NTdhYjAyZmQ5Mjk4MTNmOGY0MCIsImlhdCI6MTY2NDAwMzI2OSwiZXhwIjoxOTc5MzYzMjY5fQ.C3U4RkiPgHYCj7Brd2OGvNqS_aIoXFI0q7G2sMm2T4U"}');
   channel.sink
-      .add('{"type": "config/device_registry/list", "id":$DEVICE_MESSAGE_ID }');
+      .add('{"type": "config/device_registry/list", "id":$deviceMessageID }');
 
   ref.onDispose(() => channel.sink.close());
   return channel;
@@ -59,7 +58,7 @@ final deviceListProvider =
       }
 
       switch (messageID) {
-        case DEVICE_MESSAGE_ID:
+        case deviceMessageID:
           returnValue = DeviceListNotifier(actualData);
           break;
         default:
