@@ -8,6 +8,7 @@ class Devices extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final deviceMessage = ref.watch(deviceListProvider);
+    final _hadevices = ref.watch(haDeviceStreamProvider);
 
     return Column(
       children: deviceMessage.map((e) => Text(e)).toList(),
